@@ -1,0 +1,27 @@
+<openerp >
+	<data>
+		<record id="test_module" model="workflow">
+			<field name="name">test.module.basic</field>
+			<field name="osv">test.module</field>
+			<field name="on_create">True</field>
+		</record>
+		
+		<record id="act_a" model="workflow.activity">
+			<field name="name">confirmed</field>
+			<field name="wkf_id" ref="test_module"/>
+			<field name="kind">function</field>
+			<field name="action">print_a()</field>	
+		</record>
+		<record id="act_b" model="workflow.activity">
+			<field name="name">disconfirmed</field>
+			<field name="wkf_id" ref="test_module"/>
+			<field name="kind">function</field>
+			<field name="action">print_b()</field>	
+		</record>		
+		<record id="trans_ab" model="workflow.transition">
+			<field name="act_from" ref="act_a"/>
+			<field name="act_to" ref="act_b"/>
+		
+		</record>
+	</data>
+</openerp>
