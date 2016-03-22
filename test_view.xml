@@ -1,0 +1,29 @@
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="test_module_tree">
+			<field name="name">test.module.tree</field>
+			<field name="model">test.module</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="liste test2">
+					<field name="name"/>
+					<field name="avatar"/>
+					<field name="code"/>
+					<field name="description"/>	
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.actions.act_window" id="action_test2_seq">
+			<field name="name">Ajout Membres Freelances Mada</field>
+			<field name="res_model">test.module</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+		<menuitem id="main_menu_test_module" name="Menu test2"/>
+		<menuitem name="sousmenu test_module" id="section_main_menu_test_module" parent="main_menu_test_module"/>
+		<menuitem name="choix sous menu test module" id ="real_menu_test_module" parent ="section_main_menu_test_module" action="action_test2_seq"/>
+		
+	</data>
+</openerp>
